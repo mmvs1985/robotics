@@ -8,7 +8,7 @@ public class Main {
    //importancia de menor a mayor
       Behavior b1 = new Navegacion();
       Behavior b2 = new searchPerson(SensorPort.S1);
-
+//perros
       Behavior b3 = new acercarse(SensorPort.S4);
 
       Behavior b4 = new getPerson(SensorPort.S4);
