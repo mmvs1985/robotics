@@ -8,7 +8,7 @@ public class acercarse implements Behavior {
     private UltrasonicSensor sonar;
     private boolean suppressed = false;
     private boolean menor=false;
-    int medida=255;
+    private int medida=250;
     private int tacho=0;
     private Memoryx mem= Memoryx.getInstance();
     private boolean cargando=false;
@@ -18,35 +18,24 @@ public class acercarse implements Behavior {
     }
 
     public boolean takeControl() {
-     medida= sonar.getDistance();
-	 
-     cargando=mem.getcargando();
-     menor= (medida< 23);
-       return (menor && !(cargando));
+      medida = sonar.getDistance(); 
+      cargando=mem.getcargando();
+      menor= (medida< 15);
+      LCD.clear();
+      LCD.drawInt(sonar.getDistance(),0,3);
+      return (sonar.getDistance()<15 && !cargando);
     }
-
-
-
-
 
     public void suppress() {
 		LCD.clear();
        suppressed = true;
     }
 
-
-
-
-
-
-
-
-    
-
     public void action() {
         suppressed = false;
+        LCD.clear();
         LCD.drawString("Acercandose:",1,6);
-        LCD.drawInt(sonar.getDistance(),1,7);
+        LCD.drawInt(medida,1,7);
           Motor.A.setSpeed(150);
           Motor.B.setSpeed(150);
           Motor.A.forward();
@@ -56,8 +45,7 @@ public class acercarse implements Behavior {
                  Thread.yield();
 
                Motor.A.stop();
-               Motor.B.stop();
-    }
+               Motor.B.stop();    }
 
    
 }

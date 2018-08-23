@@ -1,0 +1,16 @@
+@echo off
+cd "C:\Users\HP Usuario\Documents\tecnologo informatico\robotica\Final\robotica"
+
+echo Compilar?
+pause > nul
+call nxjc  memoryxy\Memoryx.java QuietoMijo.java Main.java AmbosCaen.java Navegacion.java Detectocolor.java AmbosCaenEnCiudad.java Enciudad.java
+echo Linkear?
+pause > nul
+call nxjlink -o Marcos.nxj Main
+echo Linkeado!
+echo Ejecutar?
+pause > nul
+call nxjupload -r Marcos.nxj 
+echo Ejecutado!
+pause > nul
+REM nxjc  DireccionFloor.java Navigation.java QuietoMijo.java DistanceFloor.java Bondi.java LightFloor.java
