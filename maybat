@@ -1,5 +1,5 @@
 @echo off
-cd "C:\Users\HP Usuario\Documents\tecnologo informatico\robotica\Final\robotica"
+cd "carpeta destino"
 
 echo Compilar?
 pause > nul
